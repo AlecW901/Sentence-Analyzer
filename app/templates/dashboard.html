@@ -1,0 +1,21 @@
+{% if user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome {{user.first_name}} {{user.last_name}} </h3>
+        <h2>Thanks for signing up</h2>
+        <a href="{% url 'SentenceAnalyzer' %}"> SentenceAnalyzer </a>
+        <br>
+        <a href="{% url 'logout' %}">Logout?</a>
+    </div>
+{% else %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome Guest!</h3>
+        <p>Be sure to sign up</p>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+{% endif %}
+
+
+
+
+

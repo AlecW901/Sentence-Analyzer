@@ -1,0 +1,90 @@
+<html>
+    <head>
+<h1>Sentence Analyzer</h1>
+<a href="{% url 'dash' %}"> Home </a>
+<h1>Please Enter Sentence:</h1>
+        <form action="/SentenceAnalyzer/" method="post">
+            {% csrf_token %}
+            <label > Sentence</label>
+            <input name="text" type="text" >
+            <input type="submit" value="OK">
+        </form>
+
+          <script src="https://code.highcharts.com/highcharts.js"></script>
+          <script src="https://code.highcharts.com/modules/data.js"></script>
+          <script src="https://code.highcharts.com/modules/exporting.js"></script>
+          <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+          
+          <figure class="highcharts-figure">
+              <div id="container"></div>
+          
+              <table id="datatable">
+                  <thead>
+                      <tr>
+                          <th>POS</th>
+                          <th>Times Occured</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th>Pronouns</th>
+                          <td>{{pron}}</td>
+                      </tr>
+                      <tr>
+                          <th>Verbs</th>
+                          <td>{{verb}}</td>
+                      </tr>
+                      <tr>
+                          <th>Nouns</th>
+                          <td>{{noun}}</td>
+                      </tr>
+                      <tr>
+                          <th>Prepositions</th>
+                          <td>{{preposition}}</td>
+                      </tr>
+                      <tr>
+                          <th>Adjectives</th>
+                          <td>{{adjective}}</td>
+                      </tr>
+                      <tr>
+                        <th>Articles</th>
+                        <td>{{article}}</td>
+                    </tr>
+                    <tr>
+                        <th>Spaces</th>
+                        <td>{{space}}</td>
+                    </tr>
+                    <tr>
+                        <th>Adverbs</th>
+                        <td>{{adverb}}</td>
+                    </tr>
+                    <tr>
+                        <th>Punctuations</th>
+                        <td>{{mark}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </figure>
+
+    <script>
+        Highcharts.chart('container', {
+  data: {
+    table: 'datatable'
+  },
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'POS Components'
+  },
+  yAxis: {
+    allowDecimals: false,
+    title: {
+      text: 'Number of Times'
+    }
+  },
+
+});
+
+    </script>
+</html>
